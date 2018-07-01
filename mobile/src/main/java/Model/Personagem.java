@@ -6,6 +6,7 @@ public class Personagem {
     private String status;
     private String species;
     private String gender;
+    private String image;
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
@@ -21,6 +22,9 @@ public class Personagem {
 
     public String getGender() { return gender; }
     public void setGender(String gender) { this.gender = gender; }
+
+    public String getImage() { return image; }
+    public void setImage(String image) { this.image = image; }
 
     public String toString(){
         return "Nome: "+ getName()

@@ -41,7 +41,7 @@ public class RickAndMortyService extends AsyncTask<Void, Void, Personagem> {
             }
 
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            return null;
         } catch (ProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {
