@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         if (retorno != null) {
                             Intent i = new Intent(getBaseContext(), showData.class);
                             i.putExtra("retorno", retorno.toString());
+                            i.putExtra("imagem", retorno.getImage());
                             startActivity(i);
                         }
                         else{

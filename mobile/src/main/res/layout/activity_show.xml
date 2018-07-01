@@ -15,5 +15,9 @@
             android:text="TextView"
             tools:layout_editor_absoluteX="5dp"
             tools:layout_editor_absoluteY="16dp" />
+        <ImageView
+            android:id="@+id/img_foto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
