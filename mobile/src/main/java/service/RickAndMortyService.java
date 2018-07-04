@@ -1,7 +1,6 @@
 package service;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -12,7 +11,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Scanner;
 
-import Model.Personagem;
+import model.Personagem;
 
 public class RickAndMortyService extends AsyncTask<Void, Void, Personagem> {
 

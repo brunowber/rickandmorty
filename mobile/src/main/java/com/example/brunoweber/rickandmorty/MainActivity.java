@@ -9,9 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-import Model.Personagem;
+import model.Personagem;
 import service.RickAndMortyService;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (person.getText().toString().trim().length() > 0) {
                     try {
+                        if (!isOnline()) {
+                            toast("Não há conexão com a internet!");
+                            return;
+                        }
                         Personagem retorno = new RickAndMortyService(person.getText().toString()).execute().get();
                         if (retorno != null) {
                             Intent i = new Intent(getBaseContext(), showData.class);
@@ -52,12 +57,23 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public boolean isOnline(){
+        Runtime runtime = Runtime.getRuntime();
+        try {
+            Process ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8");
+            int     exitValue = ipProcess.waitFor();
+            return (exitValue == 0);
+        }
+        catch (IOException e)          { e.printStackTrace(); }
+        catch (InterruptedException e) { e.printStackTrace(); }
+
+        return false;
+    }
     public void toast(String msg){
 
         Context context = getApplicationContext();
         CharSequence text = msg;
         int duration = Toast.LENGTH_SHORT;
-
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
     }
