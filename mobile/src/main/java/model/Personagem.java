@@ -7,6 +7,8 @@ public class Personagem {
     private String species;
     private String gender;
     private String image;
+    private String origin;
+    private String type;
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
@@ -26,10 +28,18 @@ public class Personagem {
     public String getImage() { return image; }
     public void setImage(String image) { this.image = image; }
 
+    public String getOrigin() { return origin; }
+    public void setOrigin(String origin) { this.origin = origin;}
+
+    public String getType() { return type; }
+    public void setType(String type) { this.type = type; }
+
     public String toString(){
         return "Nome: "+ getName()
                 +"\nCondição: "+getStatus()
                 +"\nEspécie: "+getSpecies()
-                +"\nGênero: "+getGender();
+                +"\nGênero: "+getGender()
+                +"\nOrigem: "+getOrigin()
+                +"\nTipo: "+getType();
     }
 }

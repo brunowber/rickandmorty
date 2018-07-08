@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">rickandmorty</string>
+    <string name="id">Insira um id entre 1 à 493</string>
+    <string name="buscar">Buscar Personagem</string>
 </resources>
