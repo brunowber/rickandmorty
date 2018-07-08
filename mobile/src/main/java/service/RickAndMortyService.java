@@ -1,6 +1,8 @@
 package service;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.app.ProgressDialog;
 
 import com.google.gson.Gson;
 
@@ -16,10 +18,19 @@ import model.Personagem;
 public class RickAndMortyService extends AsyncTask<Void, Void, Personagem> {
 
     private final String id;
+    private ProgressDialog dialog;
+    private Context context;
 
-    public RickAndMortyService(String id) {
+    public RickAndMortyService(String id, Context context) {
         this.id = id;
+        this.context = context;
 
+    }
+    protected void onPreExecute() {
+        dialog = new ProgressDialog(context);
+        dialog.setTitle("Realizando o carregamento dos dados");
+        dialog.setMessage("Aguarde o fim da requisição...");
+        dialog.show();
     }
 
     @Override
@@ -48,4 +59,5 @@ public class RickAndMortyService extends AsyncTask<Void, Void, Personagem> {
         }
         return new Gson().fromJson(resposta.toString(), Personagem.class);
     }
+
 }

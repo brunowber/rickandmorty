@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                             toast("Não há conexão com a internet!");
                             return;
                         }
-                        Personagem retorno = new RickAndMortyService(person.getText().toString()).execute().get();
+                        Personagem retorno = new RickAndMortyService(person.getText().toString(), view.getContext()).execute().get();
                         if (retorno != null) {
                             Intent i = new Intent(getBaseContext(), showData.class);
                             i.putExtra("retorno", retorno.toString());
