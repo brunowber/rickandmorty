@@ -27,9 +27,10 @@ public class RickAndMortyService extends AsyncTask<Void, Void, Personagem> {
 
     }
     protected void onPreExecute() {
+        super.onPreExecute();
         dialog = new ProgressDialog(context);
-        dialog.setTitle("Realizando o carregamento dos dados");
-        dialog.setMessage("Aguarde o fim da requisição...");
+        dialog.setTitle("Consultando a API");
+        dialog.setMessage("Aguarde a consulta dos dados...");
         dialog.show();
     }
 
@@ -57,6 +58,7 @@ public class RickAndMortyService extends AsyncTask<Void, Void, Personagem> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        dialog.dismiss();
         return new Gson().fromJson(resposta.toString(), Personagem.class);
     }
 
